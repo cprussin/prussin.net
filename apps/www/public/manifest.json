@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "PrussinNet",
+  "short_name": "PrussinNet",
+  "description": "Home of the Prussin family.",
+  "id": "/",
+  "start_url": "."
+}

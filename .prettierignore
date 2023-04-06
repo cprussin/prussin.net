@@ -1,0 +1,7 @@
+.turbo/
+coverage/
+node_modules/
+apps/
+packages/
+.vscode/
+pnpm-lock.yaml

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NODE_ENV"],
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "fix": {
+      "cache": false
+    },
+    "//#fix": {
+      "cache": false
+    },
+    "fix:format": {
+      "cache": false
+    },
+    "//#fix:format": {
+      "cache": false
+    },
+    "fix:lint": {
+      "cache": false
+    },
+    "//#fix:lint": {
+      "cache": false
+    },
+    "start:dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": ["^test"]
+    },
+    "//#test": {},
+    "test:dependencies": {},
+    "//#test:dependencies": {},
+    "test:format": {},
+    "//#test:format": {},
+    "test:lint": {},
+    "//#test:lint": {},
+    "test:types": {
+      "dependsOn": ["^test:types"]
+    },
+    "test:unit-test": {
+      "dependsOn": ["^test:unit-test"]
+    },
+    "//#test:unit-test": {}
+  }
+}

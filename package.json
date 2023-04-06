@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fix": "pnpm run fix:lint && pnpm run fix:format",
+    "fix:format": "prettier --write .",
+    "fix:lint": "eslint --fix .",
+    "test": "concurrently \"pnpm run test:dependencies\" \"pnpm run test:lint\" \"TZ=UTC jest --coverage\"",
+    "test:dependencies": "npm-check",
+    "test:format": "jest --selectProjects format",
+    "test:lint": "eslint .",
+    "test:unit-test": "TZ=UTC jest --coverage --selectProjects unit-test",
+    "turbo:build": "FORCE_COLOR=1 turbo run build",
+    "turbo:fix": "FORCE_COLOR=1 turbo run fix",
+    "turbo:fix:format": "FORCE_COLOR=1 turbo run fix:format",
+    "turbo:fix:lint": "FORCE_COLOR=1 turbo run fix:lint",
+    "turbo:start:dev": "FORCE_COLOR=1 turbo run start:dev",
+    "turbo:test": "FORCE_COLOR=1 turbo run test",
+    "turbo:test:dependencies": "FORCE_COLOR=1 turbo run test:dependencies",
+    "turbo:test:format": "FORCE_COLOR=1 turbo run test:format",
+    "turbo:test:lint": "FORCE_COLOR=1 turbo run test:lint",
+    "turbo:test:types": "FORCE_COLOR=1 turbo run test:types",
+    "turbo:test:unit-test": "FORCE_COLOR=1 turbo run test:unit-test"
+  },
+  "devDependencies": {
+    "@prussin.net/tool-configs": "workspace:*",
+    "concurrently": "latest",
+    "eslint": "latest",
+    "jest": "latest",
+    "npm-check": "latest",
+    "prettier": "latest"
+  },
+  "pnpm": {
+    "overrides": {
+      "jest-runner-prettier": "github:cprussin/jest-runner-prettier#respect-prettierignore"
+    }
+  }
+}
