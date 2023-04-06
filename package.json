@@ -28,7 +28,8 @@
     "eslint": "latest",
     "jest": "latest",
     "npm-check": "latest",
-    "prettier": "latest"
+    "prettier": "latest",
+    "turbo": "latest"
   },
   "pnpm": {
     "overrides": {
