@@ -21,6 +21,39 @@ importers:
       npm-check: 6.0.1
       prettier: 2.8.7
 
+  apps/connor:
+    specifiers:
+      '@prussin.net/tool-configs': workspace:*
+      '@types/node': latest
+      '@types/react': latest
+      '@types/react-dom': latest
+      '@vercel/analytics': latest
+      concurrently: latest
+      eslint: latest
+      jest: latest
+      next: latest
+      npm-check: latest
+      prettier: latest
+      react: latest
+      react-dom: latest
+      typescript: latest
+    dependencies:
+      '@vercel/analytics': 0.1.11_react@18.2.0
+      next: 13.2.4_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@prussin.net/tool-configs': link:../../packages/tool-configs
+      '@types/node': 18.15.11
+      '@types/react': 18.0.33
+      '@types/react-dom': 18.0.11
+      concurrently: 8.0.1
+      eslint: 8.37.0
+      jest: 29.5.0_@types+node@18.15.11
+      npm-check: 6.0.1
+      prettier: 2.8.7
+      typescript: 5.0.3
+
   apps/www:
     specifiers:
       '@prussin.net/tool-configs': workspace:*
@@ -1293,7 +1326,7 @@ packages:
   /@vue/compiler-sfc/3.2.47:
     resolution: {integrity: sha512-rog05W+2IFfxjMcFw10tM9+f7i/+FFpZJJ5XHX72NP9eC2uRD+42M3pYcQqDXVYoj74kHMSEdQ/WmCjt8JFksQ==}
     dependencies:
-      '@babel/parser': 7.16.4
+      '@babel/parser': 7.21.4
       '@vue/compiler-core': 3.2.47
       '@vue/compiler-dom': 3.2.47
       '@vue/compiler-ssr': 3.2.47

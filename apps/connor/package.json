@@ -1,0 +1,38 @@
+{
+  "name": "@prussin.net/connor",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "fix": "pnpm run fix:lint && pnpm run fix:format",
+    "fix:format": "prettier --write .",
+    "fix:lint": "eslint --fix .",
+    "start:dev": "next dev",
+    "start:prod": "next start",
+    "test": "concurrently \"pnpm run test:types\" \"pnpm run test:dependencies\" \"pnpm run test:lint\" \"TZ=UTC jest --coverage\"",
+    "test:dependencies": "npm-check",
+    "test:format": "jest --selectProjects format",
+    "test:lint": "eslint .",
+    "test:types": "tsc",
+    "test:unit-test": "TZ=UTC jest --coverage --selectProjects unit-test"
+  },
+  "dependencies": {
+    "@vercel/analytics": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@prussin.net/tool-configs": "workspace:*",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "concurrently": "latest",
+    "eslint": "latest",
+    "jest": "latest",
+    "npm-check": "latest",
+    "prettier": "latest",
+    "typescript": "latest"
+  }
+}
