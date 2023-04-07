@@ -28,11 +28,14 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "autoprefixer": "latest",
     "concurrently": "latest",
     "eslint": "latest",
     "jest": "latest",
     "npm-check": "latest",
+    "postcss": "latest",
     "prettier": "latest",
+    "tailwindcss": "latest",
     "typescript": "latest"
   }
 }
