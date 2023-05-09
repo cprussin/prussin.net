@@ -1,8 +1,3 @@
-import { base } from "@prussin.net/tool-configs/src/eslint/index.js";
+import { base } from "@cprussin/eslint-config";
 
-export default [
-  {
-    ignores: ["apps/**/*", "packages/**/*"],
-  },
-  ...base,
-];
+export default [...base, { ignores: ["packages/**/*", "apps/**/*"] }];

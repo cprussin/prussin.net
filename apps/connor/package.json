@@ -5,17 +5,13 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "fix": "pnpm run fix:lint && pnpm run fix:format",
     "fix:format": "prettier --write .",
     "fix:lint": "eslint --fix .",
     "start:dev": "next dev",
     "start:prod": "next start",
-    "test": "concurrently \"pnpm run test:types\" \"pnpm run test:dependencies\" \"pnpm run test:lint\" \"TZ=UTC jest --coverage\"",
-    "test:dependencies": "npm-check",
     "test:format": "jest --selectProjects format",
-    "test:lint": "eslint .",
-    "test:types": "tsc",
-    "test:unit-test": "TZ=UTC jest --coverage --selectProjects unit-test"
+    "test:lint": "jest --selectProjects lint",
+    "test:types": "tsc"
   },
   "dependencies": {
     "@vercel/analytics": "latest",
@@ -24,16 +20,17 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "@prussin.net/tool-configs": "workspace:*",
+    "@cprussin/eslint-config": "latest",
+    "@cprussin/jest-config": "latest",
+    "@cprussin/prettier-config": "latest",
+    "@cprussin/tsconfig": "latest",
     "@svgr/webpack": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
-    "concurrently": "latest",
     "eslint": "latest",
     "jest": "latest",
-    "npm-check": "latest",
     "postcss": "latest",
     "prettier": "latest",
     "tailwindcss": "latest",

@@ -6,15 +6,19 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "fix": {
+      "dependsOn": ["fix:format", "fix:lint"],
       "cache": false
     },
     "//#fix": {
+      "dependsOn": ["//#fix:format", "//#fix:lint"],
       "cache": false
     },
     "fix:format": {
+      "dependsOn": ["fix:lint"],
       "cache": false
     },
     "//#fix:format": {
+      "dependsOn": ["//#fix:lint"],
       "cache": false
     },
     "fix:lint": {
@@ -28,21 +32,21 @@
       "persistent": true
     },
     "test": {
-      "dependsOn": ["^test"]
+      "dependsOn": ["test:format", "test:lint", "test:types", "test:unit"]
     },
-    "//#test": {},
-    "test:dependencies": {},
-    "//#test:dependencies": {},
+    "//#test": {
+      "dependsOn": ["//#test:format", "//#test:lint"]
+    },
     "test:format": {},
     "//#test:format": {},
     "test:lint": {},
     "//#test:lint": {},
-    "test:types": {
-      "dependsOn": ["^test:types"]
+    "test:types": {},
+    "test:unit": {
+      "outputs": ["coverage/**"]
     },
-    "test:unit-test": {
-      "dependsOn": ["^test:unit-test"]
-    },
-    "//#test:unit-test": {}
+    "//#test:unit-test": {
+      "outputs": ["coverage/**"]
+    }
   }
 }

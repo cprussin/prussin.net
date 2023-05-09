@@ -29,8 +29,8 @@
   cli = pkgs.lib.mkCli "cli" {
     _noAll = true;
 
-    build = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:build";
-    start = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:start:dev";
+    build = "${pkgs.turbo}/bin/turbo run build";
+    start = "${pkgs.turbo}/bin/turbo run start:dev";
 
     test = {
       nix = {
@@ -38,13 +38,7 @@
         dead-code = "${pkgs.deadnix}/bin/deadnix .";
         format = "${pkgs.alejandra}/bin/alejandra --exclude ./node_modules --check .";
       };
-      js = {
-        dependencies = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:test:dependencies";
-        format = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:test:format";
-        lint = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:test:lint";
-        types = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:test:types";
-        unit-test = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:test:unit-test";
-      };
+      turbo = "${pkgs.turbo}/bin/turbo run test";
     };
 
     fix = {
@@ -53,14 +47,12 @@
         dead-code = "${pkgs.deadnix}/bin/deadnix -e .";
         format = "${pkgs.alejandra}/bin/alejandra --exclude ./node_modules .";
       };
-      js = {
-        format = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:fix:format";
-        lint = "${pkgs.nodePackages.pnpm}/bin/pnpm run turbo:fix:lint";
-      };
+      turbo = "${pkgs.turbo}/bin/turbo run fix";
     };
   };
 in
   pkgs.mkShell {
+    FORCE_COLOR = 1;
     buildInputs = [
       cli
       pkgs.git
@@ -68,5 +60,6 @@ in
       pkgs.nodePackages.pnpm
       pkgs.nodejs
       pkgs.turbo
+      pkgs.yarn
     ];
   }

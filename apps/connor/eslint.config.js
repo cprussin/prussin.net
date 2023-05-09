@@ -1,1 +1,1 @@
-export { nextjs as default } from "@prussin.net/tool-configs/src/eslint/index.js";
+export { nextjs as default } from "@cprussin/eslint-config";
