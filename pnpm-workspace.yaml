@@ -1,3 +1,13 @@
+packageManagerStrict: true
+packageManagerStrictVersion: true
+engineStrict: true
+strictPeerDependencies: false
+strictDepBuilds: true
+managePackageManagerVersions: false
 packages:
-  - "apps/*"
-  - "packages/*"
+  - apps/*
+  - packages/*
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - unrs-resolver

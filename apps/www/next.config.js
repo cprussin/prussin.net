@@ -1,9 +1,5 @@
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-    typedRoutes: true,
-  },
   rewrites: () => [
     {
       source: "/.well-known/matrix/server",

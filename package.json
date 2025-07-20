@@ -1,19 +1,24 @@
 {
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.7.1",
+  "engines": {
+    "node": "^22.14.0",
+    "pnpm": "^10.7.1"
+  },
   "scripts": {
     "fix:format": "prettier --write .",
     "fix:lint": "eslint --fix .",
-    "test:format": "jest --selectProjects format",
-    "test:lint": "jest --selectProjects lint"
+    "test:format": "run-jest --selectProjects format",
+    "test:lint": "run-jest --selectProjects lint"
   },
   "devDependencies": {
-    "@cprussin/eslint-config": "latest",
-    "@cprussin/jest-config": "latest",
-    "@cprussin/prettier-config": "latest",
-    "eslint": "latest",
-    "jest": "latest",
-    "prettier": "latest",
-    "turbo": "latest"
+    "@cprussin/eslint-config": "^5.0.0",
+    "@cprussin/jest-config": "^3.1.2",
+    "@cprussin/prettier-config": "^3.0.0",
+    "eslint": "^9.31.0",
+    "jest": "^30.0.4",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.5"
   }
 }

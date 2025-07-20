@@ -1,9 +1,7 @@
-import { FC } from "react";
-
 import { DownloadLink } from "../DownloadLink";
 import { ExternalLink } from "../ExternalLink";
 
-export const Index: FC<Record<string, never>> = () => (
+export const Index = () => (
   <div className="flex flex-col items-center justify-center h-full">
     <h1 className="text-6xl leading-normal">Connor Prussin</h1>
     <div className="flex flex-row">

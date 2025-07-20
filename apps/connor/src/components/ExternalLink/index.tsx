@@ -1,8 +1,7 @@
-import { FC } from "react";
-
+import type { LinkWithIconProps } from "../LinkWithIcon";
 import ExternalLinkIcon from "./external-link.svg";
-import { LinkWithIcon, LinkWithIconProps } from "../LinkWithIcon";
+import { LinkWithIcon } from "../LinkWithIcon";
 
-export const ExternalLink: FC<Omit<LinkWithIconProps, "Icon">> = (props) => (
+export const ExternalLink = (props: Omit<LinkWithIconProps, "Icon">) => (
   <LinkWithIcon Icon={ExternalLinkIcon} target="_blank" {...props} />
 );

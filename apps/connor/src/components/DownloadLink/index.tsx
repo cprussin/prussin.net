@@ -1,8 +1,7 @@
-import { FC } from "react";
-
+import type { LinkWithIconProps } from "../LinkWithIcon";
 import DownloadLinkIcon from "./download-link.svg";
-import { LinkWithIcon, LinkWithIconProps } from "../LinkWithIcon";
+import { LinkWithIcon } from "../LinkWithIcon";
 
-export const DownloadLink: FC<Omit<LinkWithIconProps, "Icon">> = (props) => (
+export const DownloadLink = (props: Omit<LinkWithIconProps, "Icon">) => (
   <LinkWithIcon Icon={DownloadLinkIcon} {...props} />
 );
