@@ -2,7 +2,7 @@ import { DownloadLink } from "../DownloadLink";
 import { ExternalLink } from "../ExternalLink";
 
 export const Index = () => (
-  <div className="flex flex-col items-center justify-center h-full">
+  <div className="flex h-full flex-col items-center justify-center">
     <h1 className="text-6xl leading-normal">Connor Prussin</h1>
     <div className="flex flex-row">
       <DownloadLink href={"/resume.pdf"}>Resume</DownloadLink>

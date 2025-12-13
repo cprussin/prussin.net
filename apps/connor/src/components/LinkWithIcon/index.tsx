@@ -11,6 +11,6 @@ export const LinkWithIcon = ({
 }: LinkWithIconProps) => (
   <a className="text-zinc-400 hover:text-zinc-100" {...props}>
     <span>{children}</span>
-    <Icon className="inline-block h-3 ml-1 fill-current" />
+    <Icon className="ml-1 inline-block h-3 fill-current" />
   </a>
 );
