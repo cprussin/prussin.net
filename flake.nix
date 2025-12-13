@@ -15,8 +15,7 @@
       cli = final.lib.mkCli "cli" {
         _noAll = true;
 
-        build = "${final.turbo}/bin/turbo run build";
-        start = "${final.turbo}/bin/turbo run start:dev";
+        start = "${final.pnpm}/bin/pnpm turbo start:dev";
 
         test = {
           nix = {
@@ -24,7 +23,7 @@
             dead-code = "${final.deadnix}/bin/deadnix .";
             format = "${final.alejandra}/bin/alejandra --exclude ./node_modules --check .";
           };
-          turbo = "${final.turbo}/bin/turbo run test";
+          turbo = "${final.pnpm}/bin/pnpm turbo test -- --ui stream";
         };
 
         fix = {
@@ -33,7 +32,7 @@
             dead-code = "${final.deadnix}/bin/deadnix -e .";
             format = "${final.alejandra}/bin/alejandra --exclude ./node_modules .";
           };
-          turbo = "${final.turbo}/bin/turbo run fix";
+          turbo = "${final.pnpm}/bin/pnpm turbo fix -- --ui stream";
         };
       };
     });
@@ -41,6 +40,7 @@
     project-shell-overlay = final: _: {
       project-shell = final.mkShell {
         name = "project-shell";
+        FORCE_COLOR = 1;
         buildInputs = [
           final.cli
           final.git
