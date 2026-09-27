@@ -19,7 +19,7 @@ importers:
         version: 3.1.4(@babel/core@7.28.5)(@jest/transform@30.2.0)(@jest/types@30.5.1)(babel-jest@30.2.0(@babel/core@7.28.5))(esbuild@0.25.12)(eslint@9.39.2(jiti@1.21.7))(jest-util@30.5.1)(jest@30.2.0(@types/node@25.0.1)(esbuild-register@3.6.0(esbuild@0.25.12)))(next@15.5.9(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(prettier@3.7.4)(typescript@5.9.3)
       '@cprussin/prettier-config':
         specifier: ^3.0.1
-        version: 3.0.1(prettier@3.7.4)
+        version: 3.0.2(prettier@3.7.4)
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@1.21.7)
@@ -56,7 +56,7 @@ importers:
         version: 3.1.4(@babel/core@7.28.5)(@jest/transform@30.2.0)(@jest/types@30.5.1)(babel-jest@30.2.0(@babel/core@7.28.5))(esbuild@0.25.12)(eslint@9.39.2(jiti@2.7.0))(jest-util@30.5.1)(jest@30.2.0(@types/node@25.0.1)(esbuild-register@3.6.0(esbuild@0.25.12)))(next@16.0.10(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(prettier@3.7.4)(typescript@5.9.3)
       '@cprussin/prettier-config':
         specifier: ^3.0.1
-        version: 3.0.1(prettier@3.7.4)
+        version: 3.0.2(prettier@3.7.4)
       '@cprussin/tsconfig':
         specifier: ^4.0.2
         version: 4.0.2(typescript@5.9.3)
@@ -120,7 +120,7 @@ importers:
         version: 3.1.4(@babel/core@7.28.5)(@jest/transform@30.2.0)(@jest/types@30.5.1)(babel-jest@30.2.0(@babel/core@7.28.5))(esbuild@0.25.12)(eslint@9.39.2(jiti@2.7.0))(jest-util@30.5.1)(jest@30.2.0(@types/node@25.0.1)(esbuild-register@3.6.0(esbuild@0.25.12)))(next@16.0.10(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(prettier@3.7.4)(typescript@5.9.3)
       '@cprussin/prettier-config':
         specifier: ^3.0.1
-        version: 3.0.1(prettier@3.7.4)
+        version: 3.0.2(prettier@3.7.4)
       '@cprussin/tsconfig':
         specifier: ^4.0.2
         version: 4.0.2(typescript@5.9.3)
@@ -833,8 +833,8 @@ packages:
       jest: '>= 27.0.0'
       prettier: '>= 3.0.0'
 
-  '@cprussin/prettier-config@3.0.1':
-    resolution: {integrity: sha512-BqLZOgVEFBuHC2wX5sn49/pkF46em/nHqxU9fWoQSjZXGhZg3JbJf0o2OgPAIpaCq7i4GrH3wf3s0YHWfoKBxw==}
+  '@cprussin/prettier-config@3.0.2':
+    resolution: {integrity: sha512-XxigV/ZweH16pBDccw6q00V+C7ZR/6ok7nHPLDZy0N61nQ7CtjfqxBT/+uZEMTj4r4qicK34iMFZvlA0w7tyVw==}
     engines: {node: '>=22'}
     peerDependencies:
       prettier: ^3.5.3
@@ -5988,7 +5988,7 @@ snapshots:
       jest-diff: 29.7.0
       prettier: 3.7.4
 
-  '@cprussin/prettier-config@3.0.1(prettier@3.7.4)':
+  '@cprussin/prettier-config@3.0.2(prettier@3.7.4)':
     dependencies:
       prettier: 3.7.4
       prettier-plugin-tailwindcss: 0.6.14(prettier@3.7.4)
