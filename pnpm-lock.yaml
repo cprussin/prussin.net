@@ -58,8 +58,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.2(prettier@3.7.4)
       '@cprussin/tsconfig':
-        specifier: ^4.0.2
-        version: 4.0.2(typescript@5.9.3)
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.9.3)
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.9.3)
@@ -122,8 +122,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.2(prettier@3.7.4)
       '@cprussin/tsconfig':
-        specifier: ^4.0.2
-        version: 4.0.2(typescript@5.9.3)
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.9.3)
       '@types/node':
         specifier: ^25.0.1
         version: 25.9.8
@@ -920,11 +920,11 @@ packages:
     peerDependencies:
       prettier: ^3.5.3
 
-  '@cprussin/tsconfig@4.0.2':
-    resolution: {integrity: sha512-mozlQcpwtkrX0ledd/8SN/fwZbcAnJ6eVPtPUGOfW9apEE3IVwecG/J3rukbgubNTwoQxUjNZs6tc+LCJF+Wvg==}
+  '@cprussin/tsconfig@5.0.0':
+    resolution: {integrity: sha512-2n2pUP9oIilDUqD0jN/SfINzIMd1Kdnb97aWakPunJXlf3oKrzufl6c7gglHxF1gSJHV9XdWAELwqN9JAJLlIw==}
     engines: {node: '>=22'}
     peerDependencies:
-      typescript: ^5.8.2
+      typescript: ^6.0.3
 
   '@csstools/color-helpers@5.1.0':
     resolution: {integrity: sha512-S11EXWJyy0Mz5SYvRmY8nJYTFFd1LCNV+7cXyAgQtOOuzb4EsgfqDufL+9esx72/eLhsRdGZwaldu/h+E4t4BA==}
@@ -6177,7 +6177,7 @@ snapshots:
       - prettier-plugin-style-order
       - prettier-plugin-svelte
 
-  '@cprussin/tsconfig@4.0.2(typescript@5.9.3)':
+  '@cprussin/tsconfig@5.0.0(typescript@5.9.3)':
     dependencies:
       typescript: 5.9.3
 
