@@ -4,7 +4,7 @@
   "packageManager": "pnpm@10.25.0",
   "engines": {
     "pnpm": "^10.25.0",
-    "node": "^22.21.1"
+    "node": "^24.0.0"
   },
   "scripts": {
     "fix:format": "prettier --write .",
