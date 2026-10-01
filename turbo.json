@@ -1,121 +1,67 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["NODE_ENV"],
-  "globalPassThroughEnv": ["FORCE_COLOR"],
-  "ui": "tui",
+  "globalPassThroughEnv": ["BIOME_BINARY", "FORCE_COLOR"],
   "tasks": {
-    "//#fix": {
-      "with": ["//#fix:lint", "//#fix:format"]
+    "//#build": {
+      "dependsOn": ["//#build:install-modules"]
     },
-    "//#fix:format": {
-      "dependsOn": ["//#install:modules", "//#fix:lint"],
-      "cache": false
-    },
-    "//#fix:lint": {
-      "dependsOn": ["//#install:modules", "^build"],
-      "cache": false
-    },
-
-    "//#install:modules": {
-      "inputs": [
-        "**/package.json",
-        ".npmrc",
-        ".npmignore",
-        "bunfig.toml",
-        "!**/.next/**",
-        "!**/dist/**"
-      ],
+    "//#build:install-modules": {
+      "inputs": ["**/package.json", "bunfig.toml", "!**/.next/**"],
       "outputs": ["bun.lock"]
     },
-
+    "//#fix": {
+      "with": ["//#fix:lint"]
+    },
+    "//#fix:lint": {
+      "cache": false,
+      "dependsOn": ["//#build"]
+    },
     "//#pull:env": {
-      "dependsOn": ["//#install:modules"],
-      "outputs": [".env.local"],
-      "cache": false
+      "cache": false,
+      "dependsOn": ["//#build"],
+      "outputs": [".env.local"]
     },
-
     "//#test": {
-      "with": [
-        "//#test:types",
-        "//#test:unit",
-        "//#test:format",
-        "//#test:lint"
-      ]
+      "with": ["//#test:dependencies", "//#test:lint"]
     },
-    "//#test:format": {
-      "dependsOn": ["//#install:modules"]
+    "//#test:dependencies": {
+      "cache": false,
+      "dependsOn": ["//#build"]
     },
     "//#test:lint": {
-      "dependsOn": ["//#install:modules", "^build"]
+      "dependsOn": ["//#build"]
     },
-    "//#test:types": {
-      "dependsOn": ["//#install:modules", "^build"]
-    },
-    "//#test:unit": {
-      "dependsOn": ["//#install:modules", "^build"]
-    },
-
     "build": {
-      "dependsOn": ["//#install:modules", "pull:env", "^build"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!README.md",
-        "!**/*.test.*",
-        "!jest.config.js",
-        "!eslint.config.js",
-        "!prettier.config.js",
-        "!vercel.json",
-        "!**/dist/**"
-      ],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
-      "env": ["VERCEL_ENV"]
+      "dependsOn": ["//#build", "pull:env", "^build"],
+      "env": ["VERCEL_ENV"],
+      "inputs": ["$TURBO_DEFAULT$", "!README.md", "!**/*.test.*"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
-
-    "fix": {
-      "with": ["fix:lint", "fix:format"],
-      "cache": false
-    },
-    "fix:format": {
-      "dependsOn": ["//#install:modules", "fix:lint"],
-      "cache": false
-    },
-    "fix:lint": {
-      "dependsOn": ["//#install:modules", "^build"],
-      "cache": false
-    },
-
     "pull:env": {
-      "dependsOn": ["//#install:modules"],
-      "outputs": [".env.local"],
-      "cache": false
+      "cache": false,
+      "dependsOn": ["//#build"],
+      "outputs": [".env.local"]
     },
-
     "start:dev": {
-      "dependsOn": ["//#install:modules", "pull:env", "^build"],
-      "persistent": true,
-      "cache": false
+      "cache": false,
+      "dependsOn": ["//#build", "pull:env", "^build"],
+      "persistent": true
     },
     "start:prod": {
-      "dependsOn": ["//#install:modules", "pull:env", "build"],
-      "persistent": true,
-      "cache": false
+      "cache": false,
+      "dependsOn": ["//#build", "pull:env", "build"],
+      "persistent": true
     },
-
     "test": {
-      "with": ["test:types", "test:unit", "test:format", "test:lint"]
-    },
-    "test:format": {
-      "dependsOn": ["//#install:modules"]
-    },
-    "test:lint": {
-      "dependsOn": ["//#install:modules", "^build"]
+      "with": ["test:types", "test:unit"]
     },
     "test:types": {
-      "dependsOn": ["//#install:modules", "^build"]
+      "dependsOn": ["//#build", "^build"]
     },
     "test:unit": {
-      "dependsOn": ["//#install:modules", "^build"],
-      "outputs": ["coverage/**"]
+      "dependsOn": ["//#build", "^build"]
     }
-  }
+  },
+  "ui": "tui"
 }

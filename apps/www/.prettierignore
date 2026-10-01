@@ -1,6 +1,0 @@
-.next/
-.turbo/
-.vscode/
-coverage/
-node_modules/
-*.tsbuildinfo

@@ -6,46 +6,17 @@
       "with": ["build:app"]
     },
     "build:app": {
-      "dependsOn": ["//#install:modules", "pull:env", "^build"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!README.md",
-        "!**/*.test.*",
-        "!jest.config.js",
-        "!eslint.config.js",
-        "!prettier.config.js",
-        "!vercel.json",
-        "!**/dist/**"
-      ],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "env": [
-        "CLOUDFRONT_BASE_URL",
-        "CLOUDFRONT_PRIVATE_KEY",
-        "CLOUDFRONT_PUBLIC_KEY_ID",
-        "DATABASE_URL",
-        "VERCEL_ENV"
-      ]
+      "dependsOn": ["//#build", "pull:env", "^build"],
+      "env": ["VERCEL_ENV"],
+      "inputs": ["$TURBO_DEFAULT$", "!README.md", "!**/*.test.*"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "build:next-types": {
-      "dependsOn": ["//#install:modules", "^build"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!README.md",
-        "!**/*.test.*",
-        "!jest.config.js",
-        "!eslint.config.js",
-        "!prettier.config.js",
-        "!vercel.json",
-        "!**/dist/**"
-      ]
+      "dependsOn": ["//#build", "^build"],
+      "inputs": ["$TURBO_DEFAULT$", "!README.md", "!**/*.test.*"]
     },
-
-    "fix:lint": {
-      "dependsOn": ["//#install:modules", "build:next-types"]
-    },
-
     "test:types": {
-      "dependsOn": ["//#install:modules", "build:next-types"]
+      "dependsOn": ["//#build", "build:next-types"]
     }
   }
 }
