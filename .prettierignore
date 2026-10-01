@@ -4,4 +4,4 @@ node_modules/
 apps/
 packages/
 .vscode/
-pnpm-lock.yaml
+bun.lock

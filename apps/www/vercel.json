@@ -1,0 +1,4 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npx --yes \"$(node -p \"require('../../package.json').packageManager\")\" install --frozen-lockfile"
+}

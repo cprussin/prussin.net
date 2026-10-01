@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["NODE_ENV"],
-  "globalPassThroughEnv": ["COREPACK_HOME", "FORCE_COLOR"],
+  "globalPassThroughEnv": ["FORCE_COLOR"],
   "ui": "tui",
   "tasks": {
     "//#fix": {
@@ -21,11 +21,11 @@
         "**/package.json",
         ".npmrc",
         ".npmignore",
-        "pnpm-workspace.yaml",
+        "bunfig.toml",
         "!**/.next/**",
         "!**/dist/**"
       ],
-      "outputs": ["pnpm-lock.yaml"]
+      "outputs": ["bun.lock"]
     },
 
     "//#pull:env": {
