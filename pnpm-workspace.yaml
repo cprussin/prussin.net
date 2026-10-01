@@ -18,4 +18,4 @@ ignoredBuiltDependencies:
 overrides:
   # 3.18.3 detects the workspace's tailwindcss v4 and parses the JS config as
   # CSS, crashing lint. Drop once upstream fixes it.
-  eslint-plugin-tailwindcss: 3.18.2
+  eslint-plugin-tailwindcss: 4.4.0
