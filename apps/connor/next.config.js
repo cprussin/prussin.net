@@ -1,15 +1,15 @@
 const nextConfig = {
   reactStrictMode: true,
-  typedRoutes: true,
 
   turbopack: {
     rules: {
       "*.svg": {
-        loaders: ["@svgr/webpack"],
         as: "*.js",
+        loaders: ["@svgr/webpack"],
       },
     },
   },
+  typedRoutes: true,
 };
 
 export default nextConfig;

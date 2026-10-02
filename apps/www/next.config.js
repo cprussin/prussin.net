@@ -1,12 +1,12 @@
 const nextConfig = {
   reactStrictMode: true,
-  typedRoutes: true,
   rewrites: () => [
     {
-      source: "/.well-known/matrix/server",
       destination: "/matrix-server.json",
+      source: "/.well-known/matrix/server",
     },
   ],
+  typedRoutes: true,
 };
 
 export default nextConfig;

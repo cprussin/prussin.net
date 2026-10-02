@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Connor Prussin",
-  "short_name": "Connor Prussin",
   "description": "Home of the Connor Prussin.",
   "id": "/",
+  "name": "Connor Prussin",
+  "short_name": "Connor Prussin",
   "start_url": "."
 }

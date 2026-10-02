@@ -1,0 +1,42 @@
+name: Turbo test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: turbo-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+      - uses: oven-sh/setup-bun@v2
+      - name: Restore turbo cache
+        uses: actions/cache/restore@v6
+        with:
+          path: .turbo/cache
+          key: turbo-${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
+
+      - run: bun install --frozen-lockfile
+
+      - env:
+          FORCE_COLOR: "1"
+          TURBO_CACHE_DIR: .turbo/cache
+        run: bun run turbo test --ui stream
+
+      - name: Save turbo cache
+        if: github.ref == 'refs/heads/main'
+        uses: actions/cache/save@v6
+        with:
+          path: .turbo/cache
+          key: turbo-${{ runner.os }}-${{ github.sha }}
