@@ -1,7 +1,7 @@
 const nextConfig = {
-  // Matrix servers fetch this from the apex, and a failed fetch falls back to
-  // prussin.net:8448 (not the homeserver), so it must not redirect and should
-  // be cached instead of re-fetched every few minutes.
+  // Matrix servers re-fetch this whenever their cache expires, and a failed
+  // fetch falls back to prussin.net:8448 (Vercel, not the homeserver), so let
+  // them cache it for a day.
   headers: () => [
     {
       headers: [{ key: "Cache-Control", value: "public, max-age=86400" }],
@@ -9,15 +9,6 @@ const nextConfig = {
     },
   ],
   reactStrictMode: true,
-  // Replaces the Vercel domain-level apex redirect, which can't exempt paths.
-  redirects: () => [
-    {
-      destination: "https://www.prussin.net/:path*",
-      has: [{ type: "host", value: "prussin.net" }],
-      permanent: true,
-      source: "/:path((?!\\.well-known/).*)",
-    },
-  ],
   rewrites: () => [
     {
       destination: "/matrix-server.json",
